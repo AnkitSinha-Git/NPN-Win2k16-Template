@@ -9,7 +9,7 @@
    state: poweredoff
    vmware_netconfig: no
 #   vm_name: w2k12r2-test-deploy #Test VM deployed from updated template
-   vm_name_template: global-w2k16-template-au #New name for original tempalte for update process
+   vm_name_template: global-w2k16-template-au1 #New name for original tempalte for update process
    resource_pool_name: "template_patching"
    bkp_template: "global-w2k16-template-au_bkp"
    test_vm: "w2k16-test-deploy" #Test VM deployed from updated template
