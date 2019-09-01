@@ -1,9 +1,9 @@
 pipelines:
-  NPN-Win2k16-Template-Patching:
-#    secure_variables:
-#      ENV_PASSWORD: "AES:Npay3ETiC8Pw4NqvQBkhvw==:zOEXbIw0iMhUDF4ROghavQ=="
-    
+   NPN-Win2k16-Template-Patching:
     group: Template-Patching
+    timer:
+      spec: "0 30 18 ? * *"
+      only_on_changes: no
     materials:
       infracode:
         git: git@githuben.intranet.mckinsey.com:himanshu-sharma-xft/template-patching-npn-2k16.git
@@ -11,8 +11,6 @@ pipelines:
         auto_update: true
         blacklist:
         - "README.md"
-        timer:
-          spec: "0 30 18 ? * *"
     stages:
       - Update-Template:
           clean_workspace: true
@@ -47,5 +45,3 @@ pipelines:
                     command: ansible-playbook
                     arguments:
                       - rename-templates.yaml
-
-
