@@ -2,7 +2,7 @@ pipelines:
    NPN-Win2k16-Template-Patching:
     group: Template-Patching
     timer:
-      spec: "0 30 18 ? * *"
+      spec: "0 30 18 ? * SUN"
       only_on_changes: no
     materials:
       infracode:
