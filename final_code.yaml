@@ -178,6 +178,7 @@
       register: update_result
 
     - win_reboot:
+        reboot_timeout: 1200
       when: update_result.reboot_required
 
     - name: List of updates
