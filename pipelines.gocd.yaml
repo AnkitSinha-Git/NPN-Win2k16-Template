@@ -1,5 +1,5 @@
 pipelines:
-   template-patching-npn-2k12:
+   NPN-Win2k16-Template-Patching:
     group: Template-Patching
     timer:
       spec: "0 0 3 ? * SUN"
