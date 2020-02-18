@@ -1,6 +1,10 @@
 ---
    vcenter_hostname: "amdc-npn-vcenter01.ads.mckinsey.com"
+<<<<<<< HEAD
    vmware_template: "global-w2k12r2_template-sccm-npn"
+=======
+   vmware_template: "global-w2k16-template-au"
+>>>>>>> bbe2ae82f08657d98c527579da930aa33e0749b0
    vmware_cluster: "NPN-WN"
    vmware_datacenter: "AM-NPN-Datacenter"
    vmware_folder: "Templates"
@@ -9,7 +13,14 @@
    state: poweredoff
    vmware_netconfig: no
 #   vm_name: w2k12r2-test-deploy #Test VM deployed from updated template
+<<<<<<< HEAD
    vm_name_template: global-w2k12r2_template-sccm-npn1 #New name for original tempalte for update process
    resource_pool_name: "template_patching"
    bkp_template: "global-w2k12r2_template-sccm-npn_bkp"
    test_vm: "w2k12r2-test-deploy" #Test VM deployed from updated template
+=======
+   vm_name_template: global-w2k16-template-au1 #New name for original tempalte for update process
+   resource_pool_name: "template_patching"
+   bkp_template: "global-w2k16-template-au_bkp"
+   test_vm: "w2k16-test-deploy" #Test VM deployed from updated template
+>>>>>>> bbe2ae82f08657d98c527579da930aa33e0749b0

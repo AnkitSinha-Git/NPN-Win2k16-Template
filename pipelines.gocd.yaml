@@ -1,12 +1,19 @@
 pipelines:
+<<<<<<< HEAD
    template-patching-npn-2k12:
     group: Template-Patching
     timer:
       spec: "0 0 3 ? * TUE"
+=======
+   NPN-Win2k16-Template-Patching:
+    group: Template-Patching
+    timer:
+      spec: "0 30 18 ? * SUN"
+>>>>>>> bbe2ae82f08657d98c527579da930aa33e0749b0
       only_on_changes: no
     materials:
       infracode:
-        git: git@githuben.intranet.mckinsey.com:himanshu-sharma-xft/template-patching-npn.git
+        git: git@githuben.intranet.mckinsey.com:himanshu-sharma-xft/template-patching-npn-2k16.git
         branch: master
         auto_update: true
         blacklist:
@@ -45,5 +52,3 @@ pipelines:
                     command: ansible-playbook
                     arguments:
                       - rename-templates.yaml
-
-
