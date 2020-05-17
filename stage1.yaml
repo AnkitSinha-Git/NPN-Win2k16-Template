@@ -134,9 +134,7 @@
         name: "{{ vm_name_template }}"
         template: "{{ vm_name_template }}"
         is_template: False
-        resource_pool: "template_patching"
-
-
+        resource_pool: "{{ resource_pool_name }}"
 
 
 - name: Poweron VM
@@ -144,8 +142,6 @@
   vars_files:
     - variable/credentials.yml
     - variable/variable.yml
-#  vars:
-#    ansible_python_interpreter: "/usr/bin/env python3"
   hosts: localhost
   tasks:
     - name: "Power ON vm"
