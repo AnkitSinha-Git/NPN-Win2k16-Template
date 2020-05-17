@@ -1,6 +1,6 @@
 pipelines:
    NPN-Win2k16-Template-Patching:
-    group: Template-Patching
+    group: Windows-Template-Patching
     timer:
       spec: "0 0 3 ? * SUN"
       only_on_changes: no
@@ -22,7 +22,7 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - final_code.yaml
+                      - stage1.yaml
       - Deploy-test-VM:
           clean_workspace: true
           jobs:
@@ -33,7 +33,7 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - deploy-test-vm.yaml
+                      - stage2.yaml
       - Final_Cleanup:
           clean_workspace: true
           jobs:
@@ -44,4 +44,4 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - rename-templates.yaml
+                      - stage3.yaml
