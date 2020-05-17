@@ -155,7 +155,7 @@
         folder: "{{ vmware_folder }}"
         name: "{{ vm_name_template }}"
         is_template: False
-        resource_pool: "template_patching"
+        resource_pool: "{{ resource_pool_name }}"
 
 - name:  Windows Update
   hosts: win2k16
