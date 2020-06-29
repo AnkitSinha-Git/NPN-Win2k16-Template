@@ -9,6 +9,6 @@
    state: poweredoff
    vmware_netconfig: no
    vm_name_template: amc-win2k16-template-au1 #New name for original tempalte for update process
-   resource_pool_name: "Auto_template_patching"
+   resource_pool_name: "Resources"
    bkp_template: "amc-win2k16-template-au_bkp"
    test_vm: "template-test-deploy" #Test VM deployed from updated template
