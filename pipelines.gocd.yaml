@@ -1,5 +1,8 @@
 pipelines:
    NPN-Win2k16-Template-Patching:
+    environment_variables:
+      ENV_USER: "{{SECRET:[npn2k16][ENV_USER]}}"
+      ENV_PASSWORD: "{{SECRET:[allantest][ENV_PASS]}}"
     group: Windows-Template-Patching
     timer:
       spec: "0 0 3 ? * SUN"
@@ -22,7 +25,9 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - stage1.yaml
+			- -c
+			- ansible-playbook final_code.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD
+                      
       - Deploy-test-VM:
           clean_workspace: true
           jobs:
@@ -33,7 +38,8 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - stage2.yaml
+			- -c
+		 	- ansible-playbook deploy-test-vm.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD
       - Final_Cleanup:
           clean_workspace: true
           jobs:
@@ -44,4 +50,5 @@ pipelines:
                 - exec:
                     command: ansible-playbook
                     arguments:
-                      - stage3.yaml
+			- -c
+			- ansible-playbook rename-templates.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD
