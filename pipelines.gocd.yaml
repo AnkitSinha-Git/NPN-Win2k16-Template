@@ -2,7 +2,7 @@ pipelines:
    NPN-Win2k16-Template-Patching:
     environment_variables:
       ENV_USER: "{{SECRET:[npn2k16][ENV_USER]}}"
-      ENV_PASSWORD: "{{SECRET:[allantest][ENV_PASS]}}"
+      ENV_PASSWORD: "{{SECRET:[npn2k16][ENV_PASS]}}"
     group: Windows-Template-Patching
     timer:
       spec: "0 0 3 ? * SUN"
