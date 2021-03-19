@@ -26,7 +26,7 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - ansible-playbook final_code.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD           
+                      - ansible-playbook stage1.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD           
       - Deploy-test-VM:
           clean_workspace: true
           jobs:
@@ -38,7 +38,7 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - ansible-playbook deploy-test-vm.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD
+                      - ansible-playbook stage2.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD
       - Final_Cleanup:
           clean_workspace: true
           jobs:
@@ -50,4 +50,4 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - ansible-playbook rename-templates.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD
+                      - ansible-playbook stage3.yaml -e VMWARE_USER=$ENV_USER -e VMWARE_PASSWORD=$ENV_PASSWORD
