@@ -9,7 +9,7 @@ pipelines:
       only_on_changes: no
     materials:
       infracode:
-        git: git@githuben.intranet.mckinsey.com:himanshu-sharma-xft/template-patching-npn-2k16.git
+        git: https://github.com/AnkitSinha-Git/NPN-Win2k16-Template.git
         branch: master
         auto_update: true
         blacklist:
