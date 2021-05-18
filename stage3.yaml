@@ -67,4 +67,15 @@
         is_template: True
         uuid: "{{ vm_facts.instance.hw_product_uuid }}"
         name: "{{ vmware_template }}"
+        
+    - name: Send the final communication to MIS Wintel team about the sucessfull patching of the template "{{ vmware_template }}"
+      mail:
+        host: localhost
+        port: 25
+        from: ankit_sinha-ggn@mckinsey.com
+        subject: AMDC-NPN-Vcenter Win2016-Template|successfully patched '{{ vmware_template }}'
+        body: AMDC-NPN vcenter "{{ vmware_template }}" has been successfully patched and rebooted via GOCD pipeline.
+        to:
+        - mis-wintel@mckinsey.com
+
 
